@@ -26,10 +26,10 @@ var Todo = React.createClass({
 
     render: function () {
         var todoClass = classNames({
-            'todoItem': true,
+            'timeline__checkbox': true,
             'checked': this.state.checked
         });
-        return (<div><button className={todoClass} onClick={this.handleClick}></button></div>);
+        return (<div className="timeline__item"><button className={todoClass} onClick={this.handleClick}></button></div>);
     }
 
 });
