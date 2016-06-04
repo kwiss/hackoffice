@@ -6,27 +6,40 @@ const Hello = React.createClass({
 
   mixins: [ReactFireMixin],
 
+  getInitialState: function () {
+    return {
+      data: {
+        isActive: false
+      }
+    };
+  },
+
   componentWillMount: function () {
+    this.firebaseRef = firebase.database().ref("beacons");
+    this.bindAsArray(this.firebaseRef.limitToLast(25), 'beacons');
 
-    var ref = firebase.database().ref("items");
-    this.bindAsArray(ref, "items");
+    var self = this;
 
-    this.firebaseRef.on("child_added", function (dataSnapshot) {
+    this.firebaseRef.on("value", function (dataSnapshot) {
+      
+    console.log(dataSnapshot.val());
+      self.setState({ isActive: dataSnapshot.val() });
+    });
 
-      console.log(dataSnapshot.val());
-
-      this.items.push(dataSnapshot.val());
-      this.setState({
-        items: this.items
-      });
-    }.bind(this));
+   
 
   },
 
-  render() {
-    return (
-      <h1>Hello test hackoffice, {this.props.name}!</h1>
-    )
+  render: function () {
+    
+console.log(this.state.data.isActive);
+    
+    if (this.state.data.isActive) {
+      return (<div class="isActive">ACTIVE</div>)
+    } else {
+      return (<div>NON ACTIVE</div>)
+    }
+
   }
 });
 

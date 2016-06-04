@@ -6,3 +6,4 @@ var config = {
 };
 
 firebase.initializeApp(config);
+console.log("initialize firebase");
