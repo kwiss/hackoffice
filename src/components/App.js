@@ -52,7 +52,7 @@ const Hello = React.createClass({
         </ReactCSSTransitionGroup>);
     } else {
       return (<div>
-        <div>{this.state.users.map(createUserAvatar) }</div>
+        <div className="profile__list">{this.state.users.map(createUserAvatar) }</div>
         <button onClick={this.manageSwitch}></button> </div>);
     }
 
