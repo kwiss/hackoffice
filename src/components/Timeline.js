@@ -1,5 +1,6 @@
 import Photo from './Photo';
 import Note from './Note';
+import Todo from './Todo';
 
 var Timeline = React.createClass({
 
@@ -22,6 +23,10 @@ var Timeline = React.createClass({
         var createTimeline = function (item, index) {
 
             switch (item.type) {
+                case 'todo':
+                    var key = item[".key"];
+                    console.log(key);
+                    return (<Todo key={index} id={key} />);
                 case 'note':
                     return (<Note key={index} message={item.value} />);
                 case 'photo':
