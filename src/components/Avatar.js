@@ -2,11 +2,11 @@ var Avatar = React.createClass({
 
     status: function(type) {
       switch (type) {
-        case 1:
+        case "1":
           return("In meeting room");
-        case 2:
+        case "2":
           return("Incoming");
-        case 3:
+        case "3":
           return("Not available");
         default:
             return("deep in the space");

@@ -20,7 +20,7 @@ var Timeline = React.createClass({
         return (<Todo key={index} id={key} />);
     },
     render: function () {
-        return <div>{this.state.todos.map(this.createTimeline) }</div>;
+        return <div className="timeline"><div className="timeline__wrap">{this.state.todos.map(this.createTimeline) }</div><div className="timeline__line"></div></div>;
     }
 
 });

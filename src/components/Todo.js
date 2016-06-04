@@ -29,9 +29,6 @@ var Todo = React.createClass({
       'timeline__checkbox': true,
       'checked': this.state.data.checked
       });
-
-      console.log(this.state.data);
-
       return (
         <div className="timeline__item">
           <button className={todoClass} onClick={this.handleClick}>

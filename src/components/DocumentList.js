@@ -15,7 +15,7 @@ var DocumentList = React.createClass({
     },
 
     componentWillMount: function () {
-        this.firebaseRef = firebase.database().ref("documents");
+        this.firebaseRef = firebase.database().ref("files");
         this.bindAsArray(this.firebaseRef, "documents");
     },
 
@@ -33,7 +33,7 @@ var DocumentList = React.createClass({
         var key = document[".key"];
         var value = document[".value"];
 
-        return (<div key={key}>
+        return (<div className="document__item" key={key}>
             <img onClick={this.handleClick} className={documentClassImage} src={value} />
         </div>);
     },

@@ -12,11 +12,14 @@
 
 @import "components/profiles";
 @import "components/lockscreen";
+@import "components/timeline";
+@import "components/documents";
 
 
-.test{
-  background: red;
-  width: 500px;
+.topbutton{
+  position: fixed;
+  left: 10px;
+  top: 10px;
 }
 
 .note{
@@ -42,11 +45,6 @@
   bottom: 1em;
   top: 1em;
   background: white;
-}
-
-.documents{
-  background: black;
-  width: 100%;
 }
 
 .close{
