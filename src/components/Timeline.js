@@ -8,26 +8,19 @@ var Timeline = React.createClass({
 
     getInitialState: function () {
         return {
-            items: []
+            todos: []
         };
     },
     componentWillMount: function () {
-        this.firebaseRef = firebase.database().ref("items");
-        this.bindAsArray(this.firebaseRef, "items");
+        this.firebaseRef = firebase.database().ref("todos");
+        this.bindAsArray(this.firebaseRef, "todos");
     },
     createTimeline: function (item, index) {
-        switch (item.type) {
-            case 'todo':
-                var key = item[".key"];
-                return (<Todo key={index} id={key} />);
-            default:
-                return (<div key={index}>test</div>);
-        }
+        var key = item[".key"];
+        return (<Todo key={index} id={key} />);
     },
     render: function () {
-
-        var _this = this;
-        return <div className="timeline">{this.state.items.map(this.createTimeline) }</div>;
+        return <div>{this.state.todos.map(this.createTimeline) }</div>;
     }
 
 });
