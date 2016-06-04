@@ -38,7 +38,9 @@ var DocumentList = React.createClass({
         </div>);
     },
 
-    closeDocumentPopup: function () {
+    closeDocumentPopup: function (e) {
+        e.preventDefault();
+        console.log('closeDocumentPopup');
         this.setState({ selectedImage: null });
     },
 
