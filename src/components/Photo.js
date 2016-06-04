@@ -1,8 +1,6 @@
-var classNames = require('classnames');
+import classNames from 'classnames';
 
 var Photo = React.createClass({
-
-
 
     render: function () {
 

@@ -2,8 +2,9 @@ import '../assets/stylesheets/base.scss';
 import React, { Component } from 'react';
 import '../firebase-conf';
 import Avatar from './Avatar';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Timeline from './Timeline';
+import DocumentList from './DocumentList';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Hello = React.createClass({
 
@@ -47,9 +48,13 @@ const Hello = React.createClass({
 
     if (this.state.meetingStarted) {
       return (
-        <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
-          <Timeline />
-        </ReactCSSTransitionGroup>);
+        <div>
+          <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
+            <Timeline />
+          </ReactCSSTransitionGroup>
+          <DocumentList />
+        </div>
+      );
     } else {
       return (<div>
         <div>{this.state.users.map(createUserAvatar) }</div>
