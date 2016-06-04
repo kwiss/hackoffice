@@ -26,6 +26,7 @@ var Todo = React.createClass({
 
     render: function () {
         var todoClass = classNames({
+            'todoItem': true,
             'checked': this.state.checked
         });
         return (<div><button className={todoClass} onClick={this.handleClick}></button></div>);

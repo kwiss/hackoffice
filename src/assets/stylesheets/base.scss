@@ -13,6 +13,48 @@
 @import "components/profiles";
 @import "components/lockscreen";
 
+
+.test{
+  background: red;
+  width: 500px;
+}
+
+.note{
+  padding: 1em;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.popupDocument-appear {
+  opacity: 0.01;
+}
+
+.popupDocument-appear.popupDocument-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.popupDocument-Content{
+  padding: 1em;
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  bottom: 1em;
+  top: 1em;
+  background: white;
+}
+
+.documents{
+  background: black;
+  width: 100%;
+}
+
+.close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 //
 // body{
 //   background: white;

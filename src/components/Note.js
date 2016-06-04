@@ -1,4 +1,4 @@
-var classNames = require('classnames');
+import classNames from 'classnames';
 
 var Note = React.createClass({
 
