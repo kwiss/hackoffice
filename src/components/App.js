@@ -61,7 +61,7 @@ const Hello = React.createClass({
           <h1 className="lockscreen__title">Sprint design meeting</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <div className="profile__list">{this.state.users.map(createUserAvatar) }</div>
-          <button onClick={this.manageSwitch}></button>
+          <button className="topbutton" onClick={this.manageSwitch}>clickme</button>
         </div>);
     }
 

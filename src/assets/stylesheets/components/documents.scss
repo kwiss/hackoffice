@@ -1,0 +1,17 @@
+.documents{
+  background: $yellow;
+  padding: 30px;
+}
+
+.document__item{
+  background: white;
+  width: 420px;
+  height: 250px;
+  text-align: center;
+  padding: 20px;
+}
+
+.documentImage{
+  display: inline-block;
+  height: 100%;
+}

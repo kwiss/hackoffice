@@ -6,31 +6,36 @@ var Todo = React.createClass({
 
     getInitialState: function () {
         return {
-            checked: 'false'
+            data: {},
         };
     },
 
     componentWillMount: function () {
         var id = this.props.id;
         this.firebaseRef = firebase.database().ref("todos/" + id);
-        this.bindAsArray(this.firebaseRef, "checked");
+        this.bindAsObject(this.firebaseRef, "data");
     },
 
     handleClick: function (e) {
         e.preventDefault();
         this.firebaseRef.update({
-            checked: !this.state.checked
+            checked: !this.state.data.checked
         });
-        this.setState({ checked: !this.state.checked });
+        this.setState({ checked: !this.state.data.checked });
     },
 
     render: function () {
-        
-        var todoClass = classNames({
-            'pictureItem': true
-        });
-        
-        return (<div><button className="{todoClass}" onClick={this.handleClick}></button></div>);
+      var todoClass = classNames({
+      'timeline__checkbox': true,
+      'checked': this.state.data.checked
+      });
+      return (
+        <div className="timeline__item">
+          <button className={todoClass} onClick={this.handleClick}>
+          </button>
+          <span className="timeline__item-text">{this.state.data.message}</span>
+        </div>
+      );
     }
 
 });
