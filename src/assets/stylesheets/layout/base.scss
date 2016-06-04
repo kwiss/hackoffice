@@ -1,3 +1,11 @@
+body, html{
+  height: 100%;
+}
+
 body {
   background: $dark-gray;
+  background-image: url(../images/wave.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: fixed;
 }
