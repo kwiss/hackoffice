@@ -10,3 +10,28 @@ h1 {
 .isAvailable {
   background-color: red;
 }
+
+.pictureItem{
+  max-height: 80px;
+  max-width: 80px;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.test{
+  background: red;
+  width: 500px;
+}
+
+.note{
+  padding: 1em;
+  border-radius: 25px;
+  background-color: white;
+}

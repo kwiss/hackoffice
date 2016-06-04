@@ -1,7 +1,17 @@
 var Avatar = React.createClass({
 
     render: function () {
-        return (<div className={this.props.user.availability}>{this.props.user.name}</div>)
+
+        var avaibilityClass = 'Badge';
+        if (this.props.user.availability) {
+            avaibilityClass += ' isAvailable';
+        }
+
+        return (
+            <div className={avaibilityClass}>
+                {this.props.user.name}
+                <img class="Badge-profileImage" src={this.props.user.imageUrl} alt={this.props.user.name} />
+            </div>)
     }
 
 });

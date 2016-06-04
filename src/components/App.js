@@ -1,7 +1,9 @@
 import '../assets/stylesheets/base.scss';
 import React, { Component } from 'react';
 import '../firebase-conf';
-import Avatar from './Avatar'
+import Avatar from './Avatar';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Timeline from './Timeline';
 
 const Hello = React.createClass({
 
@@ -9,6 +11,7 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
+      meetingStarted: false,
       users: []
     };
   },
@@ -30,14 +33,29 @@ const Hello = React.createClass({
 
   },
 
+  manageSwitch: function () {
+    this.setState({ meetingStarted: true });
+  },
+
   render: function () {
     var _this = this;
-    var createItem = function (item, index) {
-      return (
-        <Avatar user={item} key={index} />
-      );
+    var createUserAvatar = function (item, index) {
+      return (<Avatar user={item} key={index} />);
     };
-    return <div>{this.state.users.map(createItem)}</div>;
+
+    console.log(this.state.meetingStarted);
+
+    if (this.state.meetingStarted) {
+      return (
+        <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
+          <Timeline />
+        </ReactCSSTransitionGroup>);
+    } else {
+      return (<div>
+        <div>{this.state.users.map(createUserAvatar) }</div>
+        <button onClick={this.manageSwitch}></button> </div>);
+    }
+
   }
 });
 

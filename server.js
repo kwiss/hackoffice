@@ -21,12 +21,6 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
-app.post('/firebase', function(){
-  
-  
-  
-});
-
 app.listen(PORT, function(error) {
   if (error) {
     console.error(error);
