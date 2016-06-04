@@ -12,7 +12,7 @@ var Todo = React.createClass({
 
     componentWillMount: function () {
         var id = this.props.id;
-        this.firebaseRef = firebase.database().ref("items/" + id);
+        this.firebaseRef = firebase.database().ref("todos/" + id);
         this.bindAsArray(this.firebaseRef, "checked");
     },
 
@@ -25,11 +25,12 @@ var Todo = React.createClass({
     },
 
     render: function () {
+        
         var todoClass = classNames({
-            'todoItem': true,
-            'checked': this.state.checked
+            'pictureItem': true
         });
-        return (<div><button className={todoClass} onClick={this.handleClick}></button></div>);
+        
+        return (<div><button className="{todoClass}" onClick={this.handleClick}></button></div>);
     }
 
 });
