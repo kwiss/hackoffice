@@ -48,10 +48,8 @@ const Hello = React.createClass({
 
     if (this.state.meetingStarted) {
       return (
-        <div>
-          <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
-            <Timeline />
-          </ReactCSSTransitionGroup>
+        <div className="test">
+          <Timeline />
           <DocumentList />
         </div>
       );
