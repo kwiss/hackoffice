@@ -1,0 +1,18 @@
+.status{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 145px;
+  left: 185px;
+  border: 2px solid $yellow;
+  .profile--1 &{
+    background: $green;
+  }
+  .profile--2 &{
+    background: $purple;
+  }
+  .profile--3 &{
+    background: $red;
+  }
+}

@@ -1,29 +1,17 @@
-body{
-  background: white;
-}
+@import "bourbon";
+@import "neat";
 
-h1 {
-  font-family: helvetica;
-  font-weight: 200;
-}
+@import "normalize";
 
-.isAvailable {
-  background-color: red;
-}
+@import "base/base";
 
-.pictureItem{
-  max-height: 80px;
-  max-width: 80px;
-}
+@import "layout/base";
 
-.example-appear {
-  opacity: 0.01;
-}
+@import "elements/badge";
+@import "elements/status";
 
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}
+@import "components/profiles";
+
 
 .test{
   background: red;
@@ -65,3 +53,42 @@ h1 {
   top: 15px;
   right: 15px;
 }
+
+//
+// body{
+//   background: white;
+// }
+//
+// h1 {
+//   font-family: helvetica;
+//   font-weight: 200;
+// }
+//
+// .isAvailable {
+//   background-color: red;
+// }
+//
+// .pictureItem{
+//   max-height: 80px;
+//   max-width: 80px;
+// }
+//
+// .example-appear {
+//   opacity: 0.01;
+// }
+//
+// .example-appear.example-appear-active {
+//   opacity: 1;
+//   transition: opacity .5s ease-in;
+// }
+//
+// .test{
+//   background: red;
+//   width: 500px;
+// }
+//
+// .note{
+//   padding: 1em;
+//   border-radius: 25px;
+//   background-color: white;
+// }
