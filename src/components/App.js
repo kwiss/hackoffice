@@ -1,6 +1,7 @@
 import '../assets/stylesheets/base.scss';
 import React, { Component } from 'react';
 import '../firebase-conf';
+import Avatar from './Avatar'
 
 const Hello = React.createClass({
 
@@ -8,38 +9,35 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
-      data: {
-        isActive: false
-      }
+      users: []
     };
   },
 
   componentWillMount: function () {
-    this.firebaseRef = firebase.database().ref("beacons");
-    this.bindAsArray(this.firebaseRef.limitToLast(25), 'beacons');
+    this.firebaseRef = firebase.database().ref("users");
 
-    var self = this;
+    this.firebaseRef.on('value', function (dataSnapshot) {
+      var users = [];
+      dataSnapshot.forEach(function (childSnapshot) {
+        var user = childSnapshot.val();
+        user['name'] = childSnapshot.key;
+        users.push(user);
+      }.bind(this));
 
-    this.firebaseRef.on("value", function (dataSnapshot) {
-      
-    console.log(dataSnapshot.val());
-      self.setState({ isActive: dataSnapshot.val() });
-    });
+      this.setState({ users: users });
 
-   
+    }.bind(this));
 
   },
 
   render: function () {
-    
-console.log(this.state.data.isActive);
-    
-    if (this.state.data.isActive) {
-      return (<div class="isActive">ACTIVE</div>)
-    } else {
-      return (<div>NON ACTIVE</div>)
-    }
-
+    var _this = this;
+    var createItem = function (item, index) {
+      return (
+        <Avatar user={item} key={index} />
+      );
+    };
+    return <div>{this.state.users.map(createItem)}</div>;
   }
 });
 

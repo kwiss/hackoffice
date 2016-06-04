@@ -1,16 +1,9 @@
-const Avatar = React.createClass({
+var Avatar = React.createClass({
 
-    
-    mixins: [ReactFireMixin],
-    
-    componentWillMount: function () {
-    this.firebaseRef = firebase.database().ref("items");
-    this.bindAsArray(this.firebaseRef.limitToLast(25), 'items');
-    this.firebaseRef.on("child_added", function (dataSnapshot) {
-      console.log(dataSnapshot.val());
-    });
-  },
-  
+    render: function () {
+        return (<div className={this.props.user.availability}>{this.props.user.name}</div>)
+    }
+
 });
 
 export default Avatar;
