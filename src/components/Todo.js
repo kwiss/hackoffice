@@ -12,7 +12,7 @@ var Todo = React.createClass({
 
     componentWillMount: function () {
         var id = this.props.id;
-        this.firebaseRef = firebase.database().ref("items/" + id);
+        this.firebaseRef = firebase.database().ref("todos/" + id);
         this.bindAsArray(this.firebaseRef, "checked");
     },
 
