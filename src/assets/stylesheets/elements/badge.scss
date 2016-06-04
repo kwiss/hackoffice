@@ -1,6 +1,21 @@
 .badge{
-  border-radius: 10px;
   height: 20px;
-  display: inline-block;
-  background: $dark-gray;
+  display: block;
+  text-align: center;
+  .badge-text{
+    border-radius: 30px;
+    display: inline-block;
+    padding: 2px 10px;
+    color: white;
+    font-weight: 300;
+    .profile--1 &{
+      background: $green;
+    }
+    .profile--2 &{
+      background: $purple;
+    }
+    .profile--3 &{
+      background: $red;
+    }
+  }
 }
