@@ -1,14 +1,20 @@
 .documents{
   background: $yellow;
   padding: 30px;
+  overflow: scroll;
+}
+
+.document__wrap{
+  width: 10000px;
 }
 
 .document__item{
   background: white;
-  width: 420px;
   height: 250px;
   text-align: center;
   padding: 20px;
+  float: left;
+  margin-right: 30px;
 }
 
 .documentImage{

@@ -29,11 +29,13 @@ var Todo = React.createClass({
       'timeline__checkbox': true,
       'checked': this.state.data.checked
       });
+      console.log(this.state.data)
       return (
         <div className="timeline__item">
           <button className={todoClass} onClick={this.handleClick}>
           </button>
           <span className="timeline__item-text">{this.state.data.message}</span>
+          <img src={this.state.data.toGuestProfileImageUrl} className="timeline__item-image"/>
         </div>
       );
     }

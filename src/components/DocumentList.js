@@ -31,7 +31,7 @@ var DocumentList = React.createClass({
         });
 
         var key = document[".key"];
-        var value = document[".value"];
+        var value = document["url"];
 
         return (<div className="document__item" key={key}>
             <img onClick={this.handleClick} className={documentClassImage} src={value} />
@@ -57,7 +57,7 @@ var DocumentList = React.createClass({
                         </ReactCSSTransitionGroup>
                     </Then>
                 </If>
-                <div>{this.state.documents.map(this.createDocuments) }</div>
+                <div className="document__wrap">{this.state.documents.map(this.createDocuments) }</div>
             </div>
         );
     }
