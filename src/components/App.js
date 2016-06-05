@@ -35,7 +35,7 @@ const Hello = React.createClass({
         return u.availability === '1';
       });
       
-      console.log(usersReady);
+      //console.log(usersReady);
 
         if(usersReady.length >= 3){
           this.manageSwitch();

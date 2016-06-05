@@ -11,7 +11,7 @@ var Avatar = React.createClass({
         default:
             return("deep in the space");
       }
-      return("test");
+      return("");
     },
 
     render: function () {
