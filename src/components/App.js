@@ -13,6 +13,7 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
+      homepage: true,
       meetingFinished: false,
       roomIsReserved: false,
       meetingStarted: false,
@@ -24,11 +25,19 @@ const Hello = React.createClass({
     this.firebaseRef = firebase.database().ref("users");
 
     firebase.database().ref("meetingIsClosed").on('child_added', function (dataSnapshot) {
-        this.setState({ meetingFinished: true });
+      this.setState({ meetingFinished: true });
     }.bind(this));
 
     firebase.database().ref("meetingIsClosed").on('child_removed', function (dataSnapshot) {
-        this.setState({ meetingFinished: false });
+      this.setState({ meetingFinished: false });
+    }.bind(this));
+
+    firebase.database().ref("homepage").on('child_added', function (dataSnapshot) {
+      this.setState({ homepage: false });
+    }.bind(this));
+
+    firebase.database().ref("homepage").on('child_removed', function (dataSnapshot) {
+      this.setState({ homepage: true });
     }.bind(this));
 
     this.firebaseRef.on('value', function (dataSnapshot) {
@@ -39,13 +48,13 @@ const Hello = React.createClass({
         users.push(user);
       }.bind(this));
 
-      var usersReady = _.filter(users, function(u) {
+      var usersReady = _.filter(users, function (u) {
         return u.availability === '1';
       });
 
-        if(usersReady.length >= 3){
-          this.manageSwitch();
-        }
+      if (usersReady.length >= 3) {
+        this.manageSwitch();
+      }
 
       this.setState({ users: users });
 
@@ -69,7 +78,7 @@ const Hello = React.createClass({
     }else
     */
 
-    if(this.state.homepage){
+    if(this.state.homepage === true){
       return (
         <div className="meeting-finish">
           <div className="meeting-finish__logo"></div>
@@ -78,9 +87,7 @@ const Hello = React.createClass({
           <div className="meeting-finish__title">Sprint design meeting</div>
           <div className="meeting-finish__subtitle">Second meeting - June 5 2016</div>
         </div>)
-    }
-
-    if(this.state.meetingFinished){
+    } else if (this.state.meetingFinished  === true) {
       return (
         <div className="meeting-finish">
           <div className="meeting-finish__logo"></div>
@@ -91,9 +98,7 @@ const Hello = React.createClass({
             <div className="bounce3"></div>
           </div>
         </div>)
-    }
-
-    if (this.state.meetingStarted) {
+    } else if (this.state.meetingStarted === true) {
       return (
         <div className="dashboard">
           <div className="logo"></div>
