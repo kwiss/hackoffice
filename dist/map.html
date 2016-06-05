@@ -15,31 +15,40 @@
 </head>
 
 <body>
-    
-    <img width="50" height="50" class="profile__avatar-image" src="http://www.jeanmarcmorandini.com/sites/jeanmarcmorandini.com/files/styles/facebook/public/sarkozy-barbe.jpg?itok=WXWwkerm" alt="ivan">
+
+    <img width="50" height="50" class="profile__avatar-image" src="http://www.jeanmarcmorandini.com/sites/jeanmarcmorandini.com/files/styles/facebook/public/sarkozy-barbe.jpg?itok=WXWwkerm"
+        alt="ivan">
     <br>
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="ivan">Ready</button>
         <button class="js-Zone" type="button" data-availability="2" data-user="ivan">Incoming</button>
         <button class="js-Zone" type="button" data-availability="3" data-user="ivan">Not available</button>
     </div>
-    
-    <img width="50" height="50" class="profile__avatar-image" src="http://h16free.com/wp-content/uploads/2013/06/hollande-et-son-casque-vignette.jpg" alt="rémi">
+
+    <img width="50" height="50" class="profile__avatar-image" src="http://h16free.com/wp-content/uploads/2013/06/hollande-et-son-casque-vignette.jpg"
+        alt="rémi">
     <br>
-    
+
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="rémi">Ready</button>
         <button class="js-Zone" type="button" data-availability="2" data-user="rémi">Incoming</button>
         <button class="js-Zone" type="button" data-availability="3" data-user="rémi">Not available</button>
     </div>
-    
-    <img width="50" height="50" class="profile__avatar-image" src="https://angeliquevoyance.files.wordpress.com/2011/02/jacques_chirac2.jpg" alt="christophe">
+
+    <img width="50" height="50" class="profile__avatar-image" src="https://angeliquevoyance.files.wordpress.com/2011/02/jacques_chirac2.jpg"
+        alt="christophe">
     <br>
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="christophe">Ready</button>
         <button class="js-Zone" type="button" data-availability="2" data-user="christophe">Incoming</button>
         <button class="js-Zone" type="button" data-availability="3" data-user="christophe">Not available</button>
     </div>
+
+    <div>
+        <button id="openMeeting">Fermer la réunion</button>
+        <button id="closeMeeting">Ouvrir la réunion</button>
+    </div>
+
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
@@ -61,18 +70,23 @@ var config = {
        for(var i = 0; i < buttons.length; ++i) {
           
             var button = buttons[i];
-           button.onclick = function(e) {
+            button.onclick = function(e) {
             e.preventDefault();
             var user = e.currentTarget.getAttribute('data-user');
             var availability = e.currentTarget.getAttribute('data-availability');
             var firebaseRef = firebase.database().ref("/users/" + user + "/");
             firebaseRef.update({ availability: availability });
             }
-       
        }
+            var closeMeetingRef = firebase.database().ref("meetingIsClosed");
+            document.getElementById('openMeeting').onclick = function(e) {
+                closeMeetingRef.push({"true": "true"});
+            }
+            
+            document.getElementById('closeMeeting').onclick = function(e) {
+                closeMeetingRef.remove();
+            }
        
-       
-
     })();
 
 </script>
