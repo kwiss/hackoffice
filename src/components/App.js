@@ -68,13 +68,10 @@ const Hello = React.createClass({
       return (<ReservationScreen />);
     }else
     */
-<<<<<<< HEAD
-    
+
     if(this.state.meetingFinished){
       return (<div>FINISHED</div>)
     }
-=======
->>>>>>> 8c84001114a584a37ea5870731fc525dad399df5
 
     if (this.state.meetingStarted) {
       return (

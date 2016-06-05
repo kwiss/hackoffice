@@ -9,6 +9,9 @@
     <style>
         .js-Zone {
             width: 33%;
+            height: 60px;
+            background: black;
+            color: white;
         }
         @media(max-width: 480px){
           .js-Zone {
@@ -94,11 +97,11 @@ var config = {
             document.getElementById('openMeeting').onclick = function(e) {
                 closeMeetingRef.push({"true": "true"});
             }
-            
+
             document.getElementById('closeMeeting').onclick = function(e) {
                 closeMeetingRef.remove();
             }
-     
+
     })();
 
 </script>
