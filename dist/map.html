@@ -13,7 +13,7 @@
             background: black;
             color: white;
         }
-        
+
         @media(max-width: 480px) {
             .js-Zone {
                 width: 100%;
@@ -41,6 +41,11 @@
         alt="rémi">
 
     <br>
+    <div>
+        <button class="js-Zone" id="deleteHomepage">Passer écran accueil</button>
+        <button class="js-Zone" id="homepageButton">Remettre écran accueil</button>
+    </div>
+    <br>
 
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="rémi">Ready</button>
@@ -58,16 +63,13 @@
         <button class="js-Zone" type="button" data-availability="2" data-user="christophe">Incoming</button>
         <button class="js-Zone" type="button" data-availability="3" data-user="christophe">Not available</button>
     </div>
-
+    <br/>
     <div>
         <button class="js-Zone" id="openMeeting">Fermer la réunion</button>
         <button class="js-Zone" id="closeMeeting">Ouvrir la réunion</button>
     </div>
 <br>
-    <div>
-        <button class="js-Zone" id="deleteHomepage">Passer écran accueil</button>
-        <button class="js-Zone" id="homepageButton">Remettre écran accueil</button>
-    </div>
+
 
 </body>
 
@@ -112,12 +114,12 @@ var config = {
             document.getElementById('deleteHomepage').onclick = function(e) {
                 homepageRef.push({"true": "true"});
             }
-            
+
                         var homepageRef = firebase.database().ref("homepage");
             document.getElementById('homepageButton').onclick = function(e) {
                 homepageRef.remove();
             }
-     
+
 
     })();
 

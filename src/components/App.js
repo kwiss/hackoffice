@@ -82,9 +82,9 @@ const Hello = React.createClass({
       return (
         <div className="meeting-finish">
           <div className="meeting-finish__logo"></div>
-          <div className="meeting-finish__room-status">Salle réservé</div>
-          <div className="meeting-finish__room-user">par Remi Roycourt</div>
-          <div className="meeting-finish__title">Sprint design meeting</div>
+          <div className="meeting-finish__room-status">reserved room</div>
+          <div className="meeting-finish__room-user">by Ivan Gabriele</div>
+          <div className="meeting-finish__title">Subject : How to win a hackton</div>
           <div className="meeting-finish__subtitle">Second meeting - June 5 2016</div>
         </div>)
     } else if (this.state.meetingFinished  === true) {
@@ -102,7 +102,7 @@ const Hello = React.createClass({
       return (
         <div className="dashboard">
           <div className="logo"></div>
-          <h1 className="lockscreen__title">Summit-level meeting</h1>
+          <h1 className="lockscreen__title">Subject : How to win a hackton</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <Timeline />
           <DocumentList />
@@ -112,7 +112,7 @@ const Hello = React.createClass({
       return (
         <div className="lockboard">
           <div className="logo"></div>
-          <h1 className="lockscreen__title">Summit-level meeting</h1>
+          <h1 className="lockscreen__title">Subject : How to win a hackton</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <div className="profile__list">{this.state.users.map(createUserAvatar) }</div>
         </div>);
