@@ -5,6 +5,8 @@ import Avatar from './Avatar';
 import Timeline from './Timeline';
 import DocumentList from './DocumentList';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReservationScreen from './ReservationScreen';
+import lodash from 'lodash';
 
 const Hello = React.createClass({
 
@@ -12,6 +14,7 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
+      roomIsReserved: false,
       meetingStarted: false,
       users: []
     };
@@ -28,6 +31,16 @@ const Hello = React.createClass({
         users.push(user);
       }.bind(this));
 
+      var usersReady = _.filter(users, function(u) {
+        return u.availability === '1';
+      });
+      
+      console.log(usersReady);
+
+        if(usersReady.length >= 3){
+          this.manageSwitch();
+        }
+
       this.setState({ users: users });
 
     }.bind(this));
@@ -35,6 +48,7 @@ const Hello = React.createClass({
   },
 
   manageSwitch: function () {
+    console.log('manageSwitch');
     this.setState({ meetingStarted: true });
   },
 
@@ -43,9 +57,13 @@ const Hello = React.createClass({
     var createUserAvatar = function (item, index) {
       return (<Avatar user={item} key={index} />);
     };
-
-    console.log(this.state.meetingStarted);
-
+    
+    /*
+    if(!this.state.roomIsReserved){
+      return (<ReservationScreen />);
+    }else 
+    */
+    
     if (this.state.meetingStarted) {
       return (
         <div className="dashboard">
