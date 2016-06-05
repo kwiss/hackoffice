@@ -9,3 +9,12 @@ body {
   background-position: center bottom;
   background-attachment: fixed;
 }
+
+.logo{
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  width: 60px;
+  height: 60px;
+  background: url(../images/logo.svg);
+}

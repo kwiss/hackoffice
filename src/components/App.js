@@ -34,7 +34,7 @@ const Hello = React.createClass({
       var usersReady = _.filter(users, function(u) {
         return u.availability === '1';
       });
-      
+
         if(usersReady.length >= 3){
           this.manageSwitch();
         }
@@ -62,10 +62,10 @@ const Hello = React.createClass({
     }else
     */
 
-
     if (this.state.meetingStarted) {
       return (
         <div className="dashboard">
+          <div className="logo"></div>
           <h1 className="lockscreen__title">Summit-level meeting</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <Timeline />
@@ -75,6 +75,7 @@ const Hello = React.createClass({
     } else {
       return (
         <div className="lockboard">
+          <div className="logo"></div>
           <h1 className="lockscreen__title">Summit-level meeting</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <div className="profile__list">{this.state.users.map(createUserAvatar) }</div>
