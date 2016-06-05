@@ -80,9 +80,12 @@
   padding: 0;
   background: $dark-gray;
   border: 4px solid #56606B;
-  transition: all 150ms ease;
+  transition: background-color border-color 150ms ease;
   outline: none;
   z-index: 20;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 3px;
   &:hover{
     background: $dark-gray;
     border-color: #56606B;
@@ -91,9 +94,19 @@
     outline: none;
     background: $dark-gray;
     border-color: $yellow;
+    background-image: url(../images/check.svg);
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 3px;
   }
   &:focus, &:active{
+    outline: none;
     background: $dark-gray;
+    border-color: $yellow;
+    background-image: url(../images/check.svg);
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 3px;
   }
 }
 

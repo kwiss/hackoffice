@@ -39,21 +39,6 @@
   transition: opacity .5s ease-in;
 }
 
-.popupDocument-Content{
-  padding: 1em;
-  position: absolute;
-  left: 1em;
-  right: 1em;
-  bottom: 0;
-  top: 1em;
-  background: white;
-  z-index: 999;
-}
-
-.popupDocument-Content img{
-	margin: auto;
-}
-
 .close{
   position: absolute;
   top: 15px;

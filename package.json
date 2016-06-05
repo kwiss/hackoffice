@@ -30,6 +30,7 @@
     "normalizr": "^2.0.0",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
+    "react-dom": "^15.1.0",
     "react-hot-loader": "^1.3.0",
     "react-if": "^2.0.5",
     "reactfire": "^1.0.0",

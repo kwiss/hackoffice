@@ -5,10 +5,15 @@
     <meta charset="utf-8">
     <title>Node + React Starter</title>
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7645272/6569152/css/fonts.css" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
         .js-Zone {
             width: 33%;
+        }
+        @media(max-width: 480px){
+          .js-Zone {
+              width: 100%;
+          }
         }
     </style>
 
@@ -16,8 +21,10 @@
 
 <body>
 
+
     <img width="50" height="50" class="profile__avatar-image" src="http://www.jeanmarcmorandini.com/sites/jeanmarcmorandini.com/files/styles/facebook/public/sarkozy-barbe.jpg?itok=WXWwkerm"
         alt="ivan">
+
     <br>
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="ivan">Ready</button>
@@ -25,8 +32,10 @@
         <button class="js-Zone" type="button" data-availability="3" data-user="ivan">Not available</button>
     </div>
 
+
     <img width="50" height="50" class="profile__avatar-image" src="http://h16free.com/wp-content/uploads/2013/06/hollande-et-son-casque-vignette.jpg"
         alt="rémi">
+
     <br>
 
     <div>
@@ -35,8 +44,10 @@
         <button class="js-Zone" type="button" data-availability="3" data-user="rémi">Not available</button>
     </div>
 
+
     <img width="50" height="50" class="profile__avatar-image" src="https://angeliquevoyance.files.wordpress.com/2011/02/jacques_chirac2.jpg"
         alt="christophe">
+
     <br>
     <div>
         <button class="js-Zone" type="button" data-availability="1" data-user="christophe">Ready</button>
@@ -55,20 +66,20 @@
 
 <script>
     (function(){
-       
+
 var config = {
     apiKey: "AIzaSyAWzSSHA-lul3rUlxJ3OODnPIc6FlttBlQ",
     authDomain: "project-3932329543505259132.firebaseapp.com",
     databaseURL: "https://project-3932329543505259132.firebaseio.com",
     storageBucket: "project-3932329543505259132.appspot.com",
   };
-  
+
   firebase.initializeApp(config);
-  
+
        var buttons = document.getElementsByClassName('js-Zone');
-       
+
        for(var i = 0; i < buttons.length; ++i) {
-          
+
             var button = buttons[i];
             button.onclick = function(e) {
             e.preventDefault();
@@ -77,6 +88,7 @@ var config = {
             var firebaseRef = firebase.database().ref("/users/" + user + "/");
             firebaseRef.update({ availability: availability });
             }
+
        }
             var closeMeetingRef = firebase.database().ref("meetingIsClosed");
             document.getElementById('openMeeting').onclick = function(e) {
@@ -86,7 +98,7 @@ var config = {
             document.getElementById('closeMeeting').onclick = function(e) {
                 closeMeetingRef.remove();
             }
-       
+     
     })();
 
 </script>
