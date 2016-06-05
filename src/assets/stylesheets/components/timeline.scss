@@ -57,6 +57,15 @@
   padding: 30px;
   position: relative;
   z-index: 20;
+  &.checked{
+    background: #56606B;
+    &:before{
+      border-color: transparent transparent #56606B transparent;
+    }
+    .timeline__content{
+      opacity: 0.3;
+    }
+  }
   &:before{
     content: "";
     position: absolute;
@@ -90,7 +99,7 @@
     background: $dark-gray;
     border-color: #56606B;
   }
-  &.checked{
+  .checked &{
     outline: none;
     background: $dark-gray;
     border-color: $yellow;

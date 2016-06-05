@@ -69,8 +69,28 @@ const Hello = React.createClass({
     }else
     */
 
+    if(this.state.homepage){
+      return (
+        <div className="meeting-finish">
+          <div className="meeting-finish__logo"></div>
+          <div className="meeting-finish__room-status">Salle réservé</div>
+          <div className="meeting-finish__room-user">par Remi Roycourt</div>
+          <div className="meeting-finish__title">Sprint design meeting</div>
+          <div className="meeting-finish__subtitle">Second meeting - June 5 2016</div>
+        </div>)
+    }
+
     if(this.state.meetingFinished){
-      return (<div>FINISHED</div>)
+      return (
+        <div className="meeting-finish">
+          <div className="meeting-finish__logo"></div>
+          <div className="lockscreen__subtitle">Sending meeting report</div>
+          <div className="spinner">
+            <div className="bounce1"></div>
+            <div className="bounce2"></div>
+            <div className="bounce3"></div>
+          </div>
+        </div>)
     }
 
     if (this.state.meetingStarted) {

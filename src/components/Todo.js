@@ -19,21 +19,23 @@ var Todo = React.createClass({
     },
 
     render: function () {
-        
-        
+
+
       var todoClass = classNames({
-      'timeline__checkbox': true,
+      'timeline__item': true,
       'checked': this.props.checked
       });
-      
+
       return (
-        <div className="timeline__item">
-          <button className={todoClass} onClick={this.handleClick}>
+        <div className={todoClass}>
+          <button className="timeline__checkbox" onClick={this.handleClick}>
           </button>
-          <div className="timeline__item-label">TODO</div>
-          <span className="timeline__item-text">{this.props.message}</span>
-          <img src={this.props.toGuestProfileImageUrl} className="timeline__item-image"/>
-          <div className="timeline__item-guest">{this.props.toGuest}</div>
+          <div className="timeline__content">
+            <div className="timeline__item-label">TODO</div>
+            <span className="timeline__item-text">{this.props.message}</span>
+            <img src={this.props.toGuestProfileImageUrl} className="timeline__item-image"/>
+            <div className="timeline__item-guest">{this.props.toGuest}</div>
+          </div>
         </div>
       );
     }
