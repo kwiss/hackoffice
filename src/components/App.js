@@ -4,7 +4,6 @@ import '../firebase-conf';
 import Avatar from './Avatar';
 import Timeline from './Timeline';
 import DocumentList from './DocumentList';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ReservationScreen from './ReservationScreen';
 import lodash from 'lodash';
 
@@ -78,11 +77,13 @@ const Hello = React.createClass({
       return (<ReservationScreen />);
     }else
     */
+    
     if(this.state.homepage === true){
       return (<div>HOMEPAGE</div>)
     }else if (this.state.meetingFinished  === true) {
       return (<div>FINISHED</div>)
     } else if (this.state.meetingStarted === true) {
+
       return (
         <div className="dashboard">
           <div className="logo"></div>
