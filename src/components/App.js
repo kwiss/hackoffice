@@ -13,6 +13,7 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
+      meetingFinished: false,
       roomIsReserved: false,
       meetingStarted: false,
       users: []
@@ -21,6 +22,14 @@ const Hello = React.createClass({
 
   componentWillMount: function () {
     this.firebaseRef = firebase.database().ref("users");
+
+    firebase.database().ref("meetingIsClosed").on('child_added', function (dataSnapshot) {
+        this.setState({ meetingFinished: true });
+    }.bind(this));
+
+    firebase.database().ref("meetingIsClosed").on('child_removed', function (dataSnapshot) {
+        this.setState({ meetingFinished: false });
+    }.bind(this));
 
     this.firebaseRef.on('value', function (dataSnapshot) {
       var users = [];
@@ -45,7 +54,6 @@ const Hello = React.createClass({
   },
 
   manageSwitch: function () {
-    console.log('manageSwitch');
     this.setState({ meetingStarted: true });
   },
 
@@ -60,6 +68,13 @@ const Hello = React.createClass({
       return (<ReservationScreen />);
     }else
     */
+<<<<<<< HEAD
+    
+    if(this.state.meetingFinished){
+      return (<div>FINISHED</div>)
+    }
+=======
+>>>>>>> 8c84001114a584a37ea5870731fc525dad399df5
 
     if (this.state.meetingStarted) {
       return (
