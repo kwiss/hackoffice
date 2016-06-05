@@ -44,12 +44,10 @@ const Hello = React.createClass({
       return (<Avatar user={item} key={index} />);
     };
 
-    console.log(this.state.meetingStarted);
-
     if (this.state.meetingStarted) {
       return (
         <div className="dashboard">
-          <h1 className="lockscreen__title">Sprint design meeting</h1>
+          <h1 className="lockscreen__title">Summit-level meeting</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <Timeline />
           <DocumentList />
@@ -58,10 +56,9 @@ const Hello = React.createClass({
     } else {
       return (
         <div className="lockboard">
-          <h1 className="lockscreen__title">Sprint design meeting</h1>
+          <h1 className="lockscreen__title">Summit-level meeting</h1>
           <h2 className="lockscreen__subtitle">Second meeting - June 8 2016</h2>
           <div className="profile__list">{this.state.users.map(createUserAvatar) }</div>
-          <button className="topbutton" onClick={this.manageSwitch}>clickme</button>
         </div>);
     }
 

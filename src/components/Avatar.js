@@ -26,9 +26,12 @@ var Avatar = React.createClass({
         return (
             <div className={avaibilityClass}>
                 <div className="profile__avatar">
-                  <img className="profile__avatar-image" src={this.props.user.imageUrl} alt={this.props.user.name} />
-                  <span className="status"></span>
-                  <span className="badge"><span className="badge-text">{availabilityText}</span></span>
+                  <span className="profile__avatar-animation">
+                    <span className="status"></span>
+                    <img className="profile__avatar-image" src={this.props.user.imageUrl} alt={this.props.user.name} />
+                    <span className="badge"><span className="badge-text">{availabilityText}</span></span>
+                  </span>
+
                 </div>
                 <div className="profile__informations">
                   <h3 className="profile-name">
