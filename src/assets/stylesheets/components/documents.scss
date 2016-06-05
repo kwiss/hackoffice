@@ -21,3 +21,19 @@
   display: inline-block;
   height: 100%;
 }
+
+.popupDocument-Content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    text-align: center;
+    img{
+      padding: 20px;
+      height: 100%;
+      display: inline-block;
+    }
+}
