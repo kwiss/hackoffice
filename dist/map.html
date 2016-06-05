@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <title>Node + React Starter</title>
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7645272/6569152/css/fonts.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
         .js-Zone {
             width: 33%;
         }
-        @media(max-width: 480px){
-          .js-Zone {
-              width: 100%;
-          }
+        
+        @media(max-width: 480px) {
+            .js-Zone {
+                width: 100%;
+            }
         }
     </style>
 
@@ -60,6 +61,11 @@
         <button id="closeMeeting">Ouvrir la réunion</button>
     </div>
 
+    <div>
+        <button id="deleteHomepage">Passer écran accueil</button>
+        <button id="homepageButton">Remettre écran accueil</button>
+    </div>
+
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
@@ -97,6 +103,16 @@ var config = {
             
             document.getElementById('closeMeeting').onclick = function(e) {
                 closeMeetingRef.remove();
+            }
+            
+            var homepageRef = firebase.database().ref("homepage");
+            document.getElementById('deleteHomepage').onclick = function(e) {
+                homepageRef.push({"true": "true"});
+            }
+            
+                        var homepageRef = firebase.database().ref("homepage");
+            document.getElementById('homepage').onclick = function(e) {
+                homepageRef.remove();
             }
      
     })();

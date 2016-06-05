@@ -14,6 +14,7 @@ const Hello = React.createClass({
 
   getInitialState: function () {
     return {
+      homepage: true,
       meetingFinished: false,
       roomIsReserved: false,
       meetingStarted: false,
@@ -25,11 +26,19 @@ const Hello = React.createClass({
     this.firebaseRef = firebase.database().ref("users");
 
     firebase.database().ref("meetingIsClosed").on('child_added', function (dataSnapshot) {
-        this.setState({ meetingFinished: true });
+      this.setState({ meetingFinished: true });
     }.bind(this));
 
     firebase.database().ref("meetingIsClosed").on('child_removed', function (dataSnapshot) {
-        this.setState({ meetingFinished: false });
+      this.setState({ meetingFinished: false });
+    }.bind(this));
+
+    firebase.database().ref("homepage").on('child_added', function (dataSnapshot) {
+      this.setState({ homepage: false });
+    }.bind(this));
+
+    firebase.database().ref("homepage").on('child_removed', function (dataSnapshot) {
+      this.setState({ homepage: true });
     }.bind(this));
 
     this.firebaseRef.on('value', function (dataSnapshot) {
@@ -40,13 +49,13 @@ const Hello = React.createClass({
         users.push(user);
       }.bind(this));
 
-      var usersReady = _.filter(users, function(u) {
+      var usersReady = _.filter(users, function (u) {
         return u.availability === '1';
       });
 
-        if(usersReady.length >= 3){
-          this.manageSwitch();
-        }
+      if (usersReady.length >= 3) {
+        this.manageSwitch();
+      }
 
       this.setState({ users: users });
 
@@ -69,15 +78,11 @@ const Hello = React.createClass({
       return (<ReservationScreen />);
     }else
     */
-<<<<<<< HEAD
-    
-    if(this.state.meetingFinished){
+    if(this.state.homepage === true){
+      return (<div>HOMEPAGE</div>)
+    }else if (this.state.meetingFinished  === true) {
       return (<div>FINISHED</div>)
-    }
-=======
->>>>>>> 8c84001114a584a37ea5870731fc525dad399df5
-
-    if (this.state.meetingStarted) {
+    } else if (this.state.meetingStarted === true) {
       return (
         <div className="dashboard">
           <div className="logo"></div>
