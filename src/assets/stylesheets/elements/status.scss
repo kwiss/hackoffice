@@ -6,6 +6,7 @@
   top: 145px;
   left: 185px;
   border: 2px solid $yellow;
+  z-index: 25;
   .profile--1 &{
     background: $green;
   }
