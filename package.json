@@ -21,6 +21,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "firebase": "^3.0.3",
+    "lodash": "^4.13.1",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
     "node-normalize-scss": "^1.2.0",

@@ -26,6 +26,7 @@ var DocumentList = React.createClass({
     },
 
     createDocuments: function (document) {
+        
         var documentClassImage = classNames({
             'documentImage': true
         });
@@ -34,7 +35,7 @@ var DocumentList = React.createClass({
         var value = document["url"];
 
         return (<div className="document__item" key={key}>
-            <img onClick={this.handleClick} className={documentClassImage} src={value} />
+            <img onClick={this.handleClick} className={documentClassImage} src={document.url} />
         </div>);
     },
 
