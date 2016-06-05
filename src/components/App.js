@@ -4,7 +4,6 @@ import '../firebase-conf';
 import Avatar from './Avatar';
 import Timeline from './Timeline';
 import DocumentList from './DocumentList';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ReservationScreen from './ReservationScreen';
 import lodash from 'lodash';
 
