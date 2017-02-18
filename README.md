@@ -1,4 +1,4 @@
-# React + Node Starter (for [Heroku](https://www.heroku.com/) deployment)
+# Hack the office React + Node (for [Heroku](https://www.heroku.com/) deployment)
 
 ### UP & RUNNING
 * `npm install`
